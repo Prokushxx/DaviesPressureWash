@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Livewire\Home;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Home;
+use App\Http\Livewire\Service\Home as ServiceHome;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 route::get('test',Home::class);
+route::get('service',ServiceHome::class);
