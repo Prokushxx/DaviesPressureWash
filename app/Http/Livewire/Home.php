@@ -6,6 +6,9 @@ use Livewire\Component;
 
 class Home extends Component
 {
+
+  // $this->emit('loginUser');
+
     public function render()
     {
         return view('livewire.home')->extends('layouts.app');

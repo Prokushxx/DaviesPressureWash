@@ -17,11 +17,11 @@
     @livewireScripts()
 
 </body>
-<footer class="bg-white relative">
+<footer class="bg-white" id="contact">
   <div class="container mx-auto px-6 py-4">
-      <div class="flex justify-between items-center absolute">
+      <div class="flex justify-between items-center">
           <div>
-              <div class="text-gray-600">&copy; Agustin Rodríguez</div>
+              <div class="text-gray-600"> Waynedavis18302@gmail.com</div>
           </div>
 
           <div class="flex items-center -mx-2">

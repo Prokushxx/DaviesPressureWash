@@ -15,9 +15,9 @@ use App\Http\Livewire\Service\Home as ServiceHome;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-route::get('test',Home::class);
+route::get('/',Home::class);
 route::get('service',ServiceHome::class);
