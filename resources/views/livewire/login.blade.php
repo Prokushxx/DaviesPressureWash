@@ -1,35 +1,47 @@
 <div>
-    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
-    <div id="my-modal"
-        class="log-form overflow-y-hidden overflow-x-hidden fixed right-0 left-0 z-50 justify-center items-center h-modal md:h-full md:inset-0"
-        style="display: none">
-        <div class="relative w-full max-w-2xl h-full md:h-auto ">
-            <div class="w-screen h-screen flex justify-center items-center ease-in">
-                <div class="w-screen h-screen flex justify-center items-center bg-gray-500"
-                    style="background: rgba(0,0,0,.7)">
-                    <div class="p-10 w-1/3 bg-white rounded flex-col shadow-md ">
-                        <form class="log-form space-x-4 space-y-4" wire:submit="submit">
-                            <button id="log-close"
-                                class="bg-red-500 float-right rounded-full px-2 py-0 text-lg text-white hover:bg-red-700"
-                                onclick="closeModal()">x</button>
-                            <H1 class="flex justify-center text-2xl">LOGIN</H1>
-
-                            <div>
-                                <label for="email">Email</label><br>
-                                <input id="drop" class="bg-gray-400 px-4 py-2 rounded w-4/5" type="email"
-                                    placeholder="E-mail" autocomplete="email">
-                            </div>
-                            <div>
-                                <label for="password">Password</label> <br>
-                                <input class="bg-gray-400 px-4 py-2 rounded w-4/5" type="password"
-                                    autocomplete="current-password" placeholder="Password">
-                            </div>
-                            <button type="submit" class="bg-blue-500 text-white rounded px-2 py-0 btn">Login</button> <br>
-                            <button class="text-blue-400 underline">Don't have an Account</button>
-                        </form>
-                    </div>
-                </div>
+    {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
+    <!-- component -->
+    <div class="w-full min-h-screen bg-gray-50 flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+        <form class="w-full sm:max-w-md p-5 mx-auto" wire:submit="submit">
+            <h2 class="mb-12 text-center text-5xl text-blue-500 font-extrabold">Login.</h2>
+ 
+            @if (session('error'))
+              <span class="text-red-500">  {{ session('error') }} </span>
+            @endif
+            <div class="mb-4">
+                <label class="block mb-1" for="email">Email-Address</label>
+                <span class="text-red-500"> @error('email')
+                        {{ $message }}
+                    @enderror
+                </span>
+                <input id="email" type="text" wire:model="email" autocomplete="email"
+                    class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full" />
             </div>
-        </div>
+            <div class="mb-4">
+                <label class="block mb-1" for="password">Password</label>
+                <span class="text-red-500"> @error('password')
+                        {{ $message }}
+                    @enderror
+                </span>
+                <input id="password" type="password" wire:model="password" autocomplete="current-password"
+                    class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full" />
+            </div>
+            <div class="mt-6 flex items-center justify-between">
+                <div class="flex items-center">
+                    <input id="remember_me" type="checkbox"
+                        class="border border-gray-300 text-red-600 shadow-sm focus:border-red-300 focus:ring focus:ring-red-200 focus:ring-opacity-50" />
+                    <label for="remember_me" class="ml-2 block text-sm leading-5 text-gray-900"> Remember me </label>
+                </div>
+                <a href="#" class="text-sm"> Forgot your password? </a>
+            </div>
+            <div class="mt-6">
+                <button type="submit"
+                    class="w-full inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold capitalize text-white hover:bg-red-700 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 disabled:opacity-25 transition">Sign
+                    In</button>
+            </div>
+            <div class="mt-6 text-center">
+                <a href="{{ url('/register') }}" class="underline">Sign up for an account</a>
+            </div>
+          </form>
     </div>
 </div>

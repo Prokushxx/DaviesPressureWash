@@ -242,7 +242,8 @@
                         </a>
                     </div>
                 </div>
-              </section>
-              @livewire('login')
+            </section>
+            
+            
         </div>
     </main>

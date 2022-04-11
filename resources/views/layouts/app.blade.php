@@ -12,7 +12,9 @@
 <body>
 
     @livewireStyles()
+    
     @livewire('navbar')
+    
     @yield('content')
     @livewireScripts()
 

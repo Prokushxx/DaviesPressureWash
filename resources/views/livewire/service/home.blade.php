@@ -25,7 +25,6 @@
                       </div>
                       <a href="#">Make a Reservation </a>
                 </div>
-
             </div>
         </div>
     </div>

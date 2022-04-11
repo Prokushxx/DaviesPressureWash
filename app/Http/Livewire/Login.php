@@ -3,41 +3,49 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+// use Illuminate\Foundation\Auth\AuthenticateUsers;
+use Illuminate\Support\Facades\Auth;
 
 class Login extends Component
 {
-  protected $listeners = ['loginUser' => 'submit'];
-
-  public $email,$password;
+  public $email, $password;
 
   public $rules = [
-  'email'=>'required|exists:users,email|email',
-  'password'=>'required',
+    'email' => 'required|exists:users,email|email',
+    'password' => 'required',
   ];
-
   public $messages = [
-  'required'=>'*Please fill out this field',
+    'required' => '*Please fill out this field',
   ];
 
-  public function updated($dtuff){
-  $this->validateOnly($dtuff);
-  }
   
-  public function submit(){
-    // dd($this->email);
+  // public function __construct()
+  // {
+  //   $this->middleware('guest')->except('logout');
+  //   $this->middleware('guest:super_user')->except('logout');
+  //   $this->middleware('guest:user')->except('logout');
+  // }
+
+  public function updated($dtuff)
+  {
+    $this->validateOnly($dtuff);  
+  }
+  public function submit()
+  {
     $this->validate();
-
-    if(Auth::attempt(['email' => $this->email, 'password' => $this->password])){
-      
-      return "hello";
-
-    }
-    else{
-      session()->flash('error','Something went wrong');
+    if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
+      if (Auth::user()->usertype == "member") {
+        return redirect(url('home'));
+      } else {
+        return redirect(url('dashboard'));
+      }
+    } else {
+       session()->flash('error', '*Something went wrong');
     }
   }
-    public function render()
-    {
-        return view('livewire.login');
-    }
+
+  public function render()
+  {
+    return view('livewire.login')->extends('layouts.app');
+  }
 }
