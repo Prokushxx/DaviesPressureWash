@@ -23,13 +23,13 @@ route::middleware('auth:sanctum')->get('/user', function (Request $request) {
   return $request->user();
 });
 
-// route::middleware(['auth:sanctum'])->group(function () {
-//   route::post('/logout', [Register::class, 'logout']);
-//   route::resource('/user', User::class);
-//   route::get('/reserveuser',[ReserveUser::class,'returnReservation']);
+route::middleware(['auth:sanctum'])->group(function () {
+  route::post('/logout', [Register::class, 'logout']);
+  route::resource('/user', User::class);
+  route::get('/reserveuser',[ReserveUser::class,'returnReservation']);
   
-// });
-// route::resource('/appointment',Appointment::class);
-// route::resource('/service', Services::class);
-// route::post('/register', [Register::class, 'register']);
-// route::post('/login', [Register::class, 'login']);
+});
+route::resource('/appointment',Appointment::class);
+route::resource('/service', Services::class);
+route::post('/register', [Register::class, 'register']);
+route::post('/login', [Register::class, 'login']);
