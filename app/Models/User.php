@@ -23,7 +23,8 @@ class User extends Authenticatable
         'password',
         'address',
         'telephone',
-        'usertype',
+        'user_type',
+        'active_flag',
     ];
 
     /**
@@ -45,7 +46,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function reservations(){
-      return $this->hasMany(Reservation::class);
+    protected $with = ['reservation'];
+
+    public function reservation(){
+      return $this->hasMany(Reservation::class)->with('service');
     }
+
+    
 }

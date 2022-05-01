@@ -26,14 +26,14 @@
     <main class="font-sans bg-white">
         <div>
 
-            <section class="bg-white mt-20">
+            <section class="bg-white mt-0">
                 <div class="max-w-2xl px-6 text-center mx-auto">
                     <h2 class="text-3xl font-semibold text-gray-800">PRESSURE <span
                             class="bg-indigo-600 text-white rounded px-1"> WASHING</span> & CLEANING SERVICES</h2>
                     <p class="text-gray-600 mt-4">Home Owners & Commercial Business, We clean Houses Driveways Cars &
                         much more.</p>
 
-                    <div class="flex items-end justify-center mt-16">
+                    <div class="flex items-end justify-center mt-8">
                         <svg width="189" height="188" viewBox="0 0 189 188" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0)">
@@ -106,144 +106,49 @@
                 <div class="max-w-5xl px-6 mx-auto text-center">
                     <h2 class="text-2xl font-semibold text-white">About Me</h2>
 
-                    <p class="text-gray-400 mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper
-                        nulla nunc quis molestie volutpat elementum at. Ultrices ipsum, enim cursus lorem ac. Orci
-                        maecenas praesent arcu eget orci est orci nullam. Leo purus est pellentesque massa at tortor,
-                        est. Aliquet pulvinar a mattis sagittis. Suspendisse porta id elementum, massa.</p>
-                </div>
-            </section>
-            <section class="bg-white py-20">
-                <div class="max-w-5xl px-6 mx-auto text-center">
-                    <h2 class="text-2xl font-semibold text-gray-800">Latest Posts</h2>
-
-                    <div class="flex flex-col items-center justify-center mt-6">
-                        <a class="max-w-2xl w-full block bg-white shadow-md rounded-md border-t-4 border-indigo-600 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                            href="#">
-                            <div class="flex items-center justify-between px-4 py-2">
-                                <h3 class="text-lg font-medium text-gray-700">Easy, Free Laravel CI Using GitHub Actions
-                                </h3>
-                                <span class="block text-gray-600 font-light text-sm">20 Jan 2020</span>
-                            </div>
-                        </a>
-
-                        <a class="mt-8 max-w-2xl w-full block bg-white shadow-md rounded-md border-t-4 border-indigo-600 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                            href="#">
-                            <div class="flex items-center justify-between px-4 py-2">
-                                <h3 class="text-lg font-medium text-gray-700">Pest: a delightful PHP Testing Framework
-                                </h3>
-                                <span class="block text-gray-600 font-light text-sm">29 Oct 2019</span>
-                            </div>
-                        </a>
-
-                        <a class="mt-8 max-w-2xl w-full block bg-white shadow-md rounded-md border-t-4 border-indigo-600 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                            href="#">
-                            <div class="flex items-center justify-between px-4 py-2">
-                                <h3 class="text-lg font-medium text-gray-700">Using inline SVGs in Vue components</h3>
-                                <span class="block text-gray-600 font-light text-sm">15 Oct 2019</span>
-                            </div>
-                        </a>
-
-                        <a class="mt-8 max-w-2xl w-full block bg-white shadow-md rounded-md border-t-4 border-indigo-600 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                            href="#">
-                            <div class="flex items-center justify-between px-4 py-2">
-                                <h3 class="text-lg font-medium text-gray-700">Acceptance Testing Laravel & VueJs Apps
-                                    with Codeception</h3>
-                                <span class="block text-gray-600 font-light text-sm">3 Oct 2019</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="flex items-center justify-center mt-12">
-                        <a class="flex items-center text-gray-600 hover:underline hover:text-gray-500" href="#">
-                            <span>View More</span>
-
-                            <svg class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
-                    </div>
+                    <p class="text-gray-400 mt-4">Davies Power Wash is a business of integrity that was founded on the premises of dependability,
+                      integrity, commitment, excellence and performance.The business idea first came about in 2017 when looking to utilze my personal skills
+                    to make a living ,but it was not until 2020 the decision was made to venture as a small business.</p>
                 </div>
             </section>
 
             <section class="bg-gray-800 pattern py-20">
                 <div class="max-w-5xl px-6 mx-auto text-center">
-                    <h2 class="text-2xl font-semibold text-white">Projects</h2>
+                    <h2 class="text-2xl font-semibold text-white">Services</h2>
 
                     <div class="flex items-center justify-center mt-10">
                         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                            <div class="max-w-xs w-full">
-                                <div
-                                    class="flex items-center justify-center h-56 bg-white border-b-8 border-teal-400 rounded-md transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 overflow-hidden">
-                                    <img class="object-cover h-8"
-                                        src="https://premium-tailwindcomponents.netlify.app/assets/svg/tailwindcomponent-dark.svg"
-                                        alt="">
-                                </div>
-
-                                <a href="#"
-                                    class="block bg-gray-700 mt-5 rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                                    <div class="py-2 px-3 text-center text-sm">
-                                        <p class="text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit.</p>
-
-                                        <span class="block text-gray-500 mt-2">tailwindcomponents.com</span>
+                            @foreach ($info as $data)
+                                <div class="max-w-xs w-full">
+                                    <div
+                                        class="h-56 bg-white w-full rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+                                        <div class="object-cover h-8">
+                                            <div
+                                                class="bg-white rounded-2xl shadow-xl px-8 py-12 sm:px-12 lg:px-8 cursor-grab">
+                                                <div class="mb-12">
+                                                    <h3 class="text-2xl font-semibold text-purple-900">
+                                                        {{ $data->name }}</h3>
+                                                    <h3 class="text-xl font-semibold text-purple-900">
+                                                        {{ $data->cost }}</h3>
+                                                    <p class="mb-6">{{ $data->desc }}
+                                                    </p>
+                                                    <a href="{{ url('reservation', $data->id) }}"
+                                                        class="block font-medium text-purple-600">Make Reservation</a>
+                                                </div>
+                                                <img src="https://tailus.io/sources/blocks/end-image/preview/images/graphic.svg"
+                                                    class="w-2/3 ml-auto -mb-12" alt="illustration" loading="lazy"
+                                                    width="900" height="600">
+                                            </div>
+                                        </div>
                                     </div>
-                                </a>
-                            </div>
-
-                            <div class="max-w-xs w-full">
-                                <div
-                                    class="flex items-center justify-center h-56 bg-white border-b-8 border-teal-400 rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                                    <img class="object-cover h-8"
-                                        src="https://premium-tailwindcomponents.netlify.app/assets/svg/tailwindcomponent-dark.svg"
-                                        alt="">
                                 </div>
-
-                                <a href="#"
-                                    class="block bg-gray-700 mt-5 rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                                    <div class="py-2 px-3 text-center text-sm">
-                                        <p class="text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit.</p>
-
-                                        <span class="block text-gray-500 mt-2">tailwindcomponents.com</span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="max-w-xs w-full">
-                                <div
-                                    class="flex items-center justify-center h-56 bg-white border-b-8 border-teal-400 rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                                    <img class="object-cover h-8"
-                                        src="https://premium-tailwindcomponents.netlify.app/assets/svg/tailwindcomponent-dark.svg"
-                                        alt="">
-                                </div>
-
-                                <a href="#"
-                                    class="block bg-gray-700 mt-5 rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                                    <div class="py-2 px-3 text-center text-sm">
-                                        <p class="text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit.</p>
-
-                                        <span class="block text-gray-500 mt-2">tailwindcomponents.com</span>
-                                    </div>
-                                </a>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
-
-                    <div class="flex items-center justify-center mt-12">
-                        <a class="flex items-center text-white hover:underline hover:text-gray-200" href="#">
-                            <span>View More On Github</span>
-
-                            <svg class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
-                    </div>
                 </div>
-            </section>
-            
-            
         </div>
-    </main>
+        </section>
+
+
+</div>
+</main>

@@ -5,7 +5,7 @@
         <div class="w-screen h-screen bg-gray-50 flex justify-center items-center ease-in">
             <div class="w-screen h-screen flex justify-center items-center">
                 <div class="p-10 bg-whie rounded flex justify-center items-center flex-col shadow-m ">
-                    <p class="mb-5 text-5xl font-extrabold text-blue-500">Sign Up</p>
+                    <p class="mt-5 text-5xl font-extrabold text-blue-500">Sign Up</p>
                     <form wire:submit.prevent="submit" class="flex-row mt-15">
                         @csrf
                         @if (session('message'))
@@ -17,34 +17,34 @@
                         @enderror
                         <br>
                         <input type="text" wire:model="fullname" placeholder="fullname"
-                            class="mb-5 p-3 w-80 focus:border-blue-700 rounded border-2 outline-none"><br>
+                            class="mb-3 p-3 w-80 focus:border-blue-700 rounded border-2 outline-none"><br>
 
                         @error('email')
                             {{ $message }}
                         @enderror <br>
                         <input type="text" wire:model="email" placeholder="email"
-                            class="mb-5 p-3 w-80 focus:border-blue-700 rounded border-2 outline-none"><br>
+                            class="mb-3 p-3 w-80 focus:border-blue-700 rounded border-2 outline-none"><br>
 
                         @error('address')
                             {{ $message }}
                         @enderror
                         <br>
                         <input type="text" placeholder="address" wire:model="address" autocomplete="street-address"
-                            class="mb-5 p-3 w-80 focus:border-blue-700 rounded border-2 outline-none"><br>
+                            class="mb-3 p-3 w-80 focus:border-blue-700 rounded border-2 outline-none"><br>
 
                         @error('mobile')
                             {{ $message }}
                         @enderror
                         <br>
                         <input type="number" wire:model="mobile" placeholder="mobile"
-                            class="mb-5 p-3 w-80 focus:border-blue-700 rounded border-2 outline-none"><br>
+                            class="mb-3 p-3 w-80 focus:border-blue-700 rounded border-2 outline-none"><br>
 
                         @error('password')
                             {{ $message }}
                         @enderror
                         <br>
                         <input type="password" wire:model="password" placeholder="password" autocomplete="new-password"
-                            class="mb-5 p-3 w-80 focus:border-blue-700 rounded border-2 outline-none"><br>
+                            class="mb-3 p-3 w-80 focus:border-blue-700 rounded border-2 outline-none"><br>
 
                         @error('confirmpassword')
                             {{ $message }}

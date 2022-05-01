@@ -4,7 +4,11 @@ module.exports = {
     './resources/**/*.js',
     './resources/**/*.vue',],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        'bounce': 'bounce 4s',
+      }
+    },
   },
   plugins: [],
 }

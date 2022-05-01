@@ -43,8 +43,8 @@ class Register extends Component
       'password'=>Hash::make($this->password)
      ]);
 
-    Auth::login($user);
-    return redirect(url('home'));
+    // Auth::login($user);
+    return redirect(url('login'));
    
   }
 

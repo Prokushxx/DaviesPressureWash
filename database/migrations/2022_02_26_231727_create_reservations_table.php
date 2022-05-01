@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('service_id')->constrained('services','id');
             $table->string('time');
             $table->string('date');
+            $table->string('status')->default('Pending');
             $table->timestamps();
         });
     }

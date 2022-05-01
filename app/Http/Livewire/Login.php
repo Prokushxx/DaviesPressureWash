@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class Login extends Component
 {
-  public $email, $password;
+  public $email, $password, $remember_me;
+  public $errorMessage;
 
   public $rules = [
     'email' => 'required|exists:users,email|email',
@@ -18,30 +19,37 @@ class Login extends Component
     'required' => '*Please fill out this field',
   ];
 
-  
-  // public function __construct()
-  // {
-  //   $this->middleware('guest')->except('logout');
-  //   $this->middleware('guest:super_user')->except('logout');
-  //   $this->middleware('guest:user')->except('logout');
-  // }
-
   public function updated($dtuff)
   {
-    $this->validateOnly($dtuff);  
+    $this->validateOnly($dtuff);
   }
+
   public function submit()
   {
+
     $this->validate();
-    if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
-      if (Auth::user()->usertype == "member") {
-        return redirect(url('home'));
+    if (Auth::attempt(['email' => $this->email, 'password' => $this->password], filled($this->remember_me))) {
+      if (Auth::user()->active_flag == true) {
+        if (Auth::user()->user_type == "member") {
+          return redirect(url('home'));
+        } else {
+          return redirect(url('dashboard'));
+        }
       } else {
-        return redirect(url('dashboard'));
+        Auth::logout();
+        $this->dispatchBrowserEvent('deactivate', [
+          'title' => 'Your Account is Disabled',
+          'icon' => 'error',
+        ]);
       }
     } else {
-       session()->flash('error', '*Something went wrong');
+      $this->errorMessage = '*Password Incorrect';
     }
+  }
+  public function test()
+  {
+    // dd($this->email);
+    $this->emit('addservice');
   }
 
   public function render()

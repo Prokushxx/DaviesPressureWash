@@ -14,12 +14,13 @@ class Reservation extends Model
       'date',
       'user_id',
       'service_id',
+      'status'
     ];
 
-   public function users(){
+   public function user(){
       return $this->belongsTo(User::class);
     }
-    public function services(){
+    public function service(){
       return $this->belongsTo(Service::class);
     }
 }

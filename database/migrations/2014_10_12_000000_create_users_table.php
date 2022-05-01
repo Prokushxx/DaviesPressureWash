@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('address');
             $table->string('telephone');
             $table->string('password');
-            $table->boolean('is_user')->default(false);
+            $table->boolean('active_flag')->default(true);
+            $table->string('user_type')->default('member');
             $table->rememberToken();
             $table->timestamps();
         });

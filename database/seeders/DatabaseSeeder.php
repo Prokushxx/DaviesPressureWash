@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
           'email'=>'admin@gmail.com',
           'address'=>'adminaddress',
           'telephone'=>'437823012',
-          // 'usertype'=>'admin'/,
+          'user_type'=>'admin',
           'password'=>Hash::make('adminpassword'),
         ]);
     }
