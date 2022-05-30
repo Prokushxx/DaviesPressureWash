@@ -13,41 +13,41 @@
                             <br>
                         @endif
                         @error('fullname')
-                            {{ $message }}
+                            <span class="text-red-500 font-semibold">{{ $message }}</span>
                         @enderror
                         <br>
                         <input type="text" wire:model="fullname" placeholder="fullname"
                             class="mb-3 p-3 w-80 focus:border-blue-700 rounded border-2 outline-none"><br>
 
                         @error('email')
-                            {{ $message }}
+                            <span class="text-red-500 font-semibold">{{ $message }}</span>
                         @enderror <br>
                         <input type="text" wire:model="email" placeholder="email"
                             class="mb-3 p-3 w-80 focus:border-blue-700 rounded border-2 outline-none"><br>
 
                         @error('address')
-                            {{ $message }}
+                            <span class="text-red-500 font-semibold">{{ $message }}</span>
                         @enderror
                         <br>
                         <input type="text" placeholder="address" wire:model="address" autocomplete="street-address"
                             class="mb-3 p-3 w-80 focus:border-blue-700 rounded border-2 outline-none"><br>
 
                         @error('mobile')
-                            {{ $message }}
+                            <span class="text-red-500 font-semibold">{{ $message }}</span>
                         @enderror
                         <br>
                         <input type="number" wire:model="mobile" placeholder="mobile"
                             class="mb-3 p-3 w-80 focus:border-blue-700 rounded border-2 outline-none"><br>
 
                         @error('password')
-                            {{ $message }}
+                            <span class="text-red-500 font-semibold">{{ $message }}</span>
                         @enderror
                         <br>
                         <input type="password" wire:model="password" placeholder="password" autocomplete="new-password"
                             class="mb-3 p-3 w-80 focus:border-blue-700 rounded border-2 outline-none"><br>
 
                         @error('confirmpassword')
-                            {{ $message }}
+                            <span class="text-red-500 font-semibold">{{ $message }}</span>
                         @enderror
                         <br>
                         <input type="password" wire:model="confirmpassword" placeholder="Confirm Password"

@@ -5,14 +5,15 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.3.27",
+        "php": "^7.3.27|^8.1.4",
         "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "^7.3.27",
+        "laravel/framework": "^7.3.27|^9.0.",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
         "livewire/livewire": "^2.10",
-        "realrashid/sweet-alert": "^5.0"
+        "realrashid/sweet-alert": "^5.0",
+        "ext-curl": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

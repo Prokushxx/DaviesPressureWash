@@ -14,6 +14,6 @@ class ReserveUser extends Controller
     $user = Auth::user();
     $ResponseData = [];
     $ResponseData['reservation'] = $user->reservation;
-    return response()->json($ResponseData, 202);
+    return response()->json($ResponseData, 200);
   }
 }

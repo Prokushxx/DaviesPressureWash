@@ -59,7 +59,7 @@ class Home extends Component
 
     if ($user) {
       $this->dispatchBrowserEvent('addswal', [
-        'title' => 'Added SSuccesfully',
+        'title' => 'Added Succesfully',
         'icon' => 'success',
       ]);
     }

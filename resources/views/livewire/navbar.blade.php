@@ -3,8 +3,9 @@
         {{-- Care about people's approval and you will be their prisoner. --}}
         <header class="bg-white shadow border-t-4 border-indigo-600">
             <div class="container mx-auto px-6 py-4 bg-white">
-                <div class="flex items-center justify-between">
+                <div class="md:flex md:items-center md:justify-between z-[-1] md:z-auto">
                   @auth
+                    
                     <div>
                         <a class="flex items-center text-gray-800 hover:text-indigo-600" href="{{ url('/home') }}">
                         

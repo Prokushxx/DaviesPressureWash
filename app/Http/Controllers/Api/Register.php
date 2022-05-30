@@ -18,7 +18,7 @@ class Register extends Controller
       'email' => 'required|email|unique:users,email',
       'password' => ['required', 'confirmed'],
       'address' => 'required',
-      'telephone' => 'required|min:8|max:8',
+      'telephone' => 'required|min:10|max:10',
       'password_confirmation' => 'required',
     ], [
       'required' => '*Please fill out this field',
@@ -31,18 +31,15 @@ class Register extends Controller
       $allData = $request->all();
       $allData['password'] = bcrypt($allData['password']);
       $user = User::create($allData);
-      $gettype = User::where('email',$user->email)->first();
       $resArr = [];
       $resArr['token'] = $user->createToken($user->email . '_Token')->plainTextToken;
-      $resArr['name'] = $request->name;
-      $resArr['user_type'] = $gettype->user_type;
       return response()->json($resArr, 200);
     }
   }
 
-
   public function login(Request $request)
   {
+    // dd($request);
     $validation = validator::make($request->all(), [
       'email' => 'required|email',
       'password' => 'required',
@@ -58,16 +55,18 @@ class Register extends Controller
         $resArr['token'] = $user->createToken($user->email.'auth_token')->plainTextToken;
         $resArr['user'] = $user;
         $resArr['reservation'] = $user->reservation; 
-        return response()->json($resArr, 200);
+        return response()->json($resArr,200);
       } else {
         return response()->json(['error' => 'Incorrect Credentials'], 203);
       }
     }
   }
 
-  public function logout()
+  public function logout($id)
    {
-     auth()->user()->tokens()->delete();
+     $authuserid = User::findOrFail($id);
+     $tokens = $authuserid->tokens()->delete();
+     Auth::logout();
      return response()->json([
        'successMessage' => 'Deleted Token',
      ]); 

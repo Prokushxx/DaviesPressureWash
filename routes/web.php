@@ -28,9 +28,12 @@ use App\Http\Livewire\User\Viewreservations;
 
 route::get('/', Home::class);
 route::get('/service', ServiceHome::class);
-route::get('/login', Login::class)->name('login');
 route::get('/logout', [logout::class, 'logout'])->name('logout');
-route::get('/register', Register::class);
+
+route::middleware(['proauth'])->group(function () {
+  route::get('/login', Login::class)->name('login');
+  route::get('/register', Register::class);
+});
 
 route::middleware(['admin'])->group(function () {
   route::get('/dashboard', AdminHome::class);

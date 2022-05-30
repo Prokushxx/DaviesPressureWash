@@ -6,7 +6,7 @@
         </p>
         <div class="bg-white">
             <div class="grid grid-cols-2 flex justify-center"> 
-                <div class="pt-4 pl-10">
+                <div class="pt-4 pl-10 col-span-2 flex flex-col justify-center items-center">
                     @if ($successMessage)
                         <span class="text-green-500">{{ $successMessage }}</span>
                     @endif
@@ -15,11 +15,11 @@
                     @enderror
                     <p class="text-2xl">Update Username</p>
 
-                    <input type="text" class="w-3/4 mt-2 shadow-md border-2 my-4 py-2 px-2 border-gray-200"
+                    <input type="text" class="w-3/4 mt-2 shadow-md border-2 text-center my-4 py-2 px-2 border-gray-200"
                         wire:model='name'><br>
                     <button wire:click="upName" class="px-2 py-1 bg-blue-500 text-white">Update</button>
                 </div>
-                <div class="pt-4 pl-10">
+                {{-- <div class="pt-4 pl-10">
                     @error('email')
                         <span class="text-red-500"> {{ $message }}</span>
                     @enderror
@@ -27,7 +27,7 @@
                     <input type="email" class="w-3/4 mt-2 shadow-md border-2 my-4 py-2 px-2 border-gray-200"
                         wire:model='email'><br>
                     <button wire:click="upEmail" class="px-2 py-1 bg-blue-500 text-white">Update</button>
-                </div>
+                </div> --}}
             </div>
             <div class="grid grid-cols-2"> 
                 <div class="pt-4 pl-10">

@@ -55,7 +55,7 @@ class Profile extends Component
       'exists' => '*Email Already Exists',
     ]);
     $this->successMessage = 'Email Update Successful';
-
+    
     $userdata = User::find($this->userId);
     $userdata->update(['email' => $this->email]);
   }

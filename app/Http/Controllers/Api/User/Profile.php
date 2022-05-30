@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\User as ModelsUser;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class User extends Controller
+class Profile extends Controller
 {
   /**
    * Display a listing of the resource.
@@ -17,7 +19,6 @@ class User extends Controller
   public function index()
   {
     //
-    return response()->json(ModelsUser::all());
   }
 
   /**
@@ -38,25 +39,7 @@ class User extends Controller
    */
   public function store(Request $request)
   {
-    $data = $request->all();
-    $validate = validator::make($data, [
-      'name' => 'required',
-      'email' => ['required', 'unique:users', 'email'],
-      'telephone' => 'required',
-      'address' => 'required',
-      'password' => 'required',
-    ], [
-      'required' => '*Please fill out all fields',
-      'unique' => '*Already Taken',
-    ]);
-    if ($validate->fails()) {
-      return response()->json($validate->errors(), 202);
-    } else {
-      $data['password'] = bcrypt($data['password']);
-      $createUser = User::create($data);
-
-      return response()->json($createUser,200);
-    }
+    //
   }
 
   /**
@@ -68,7 +51,7 @@ class User extends Controller
   public function show($id)
   {
     //
-    $finddata = ModelsUser::findOrFail($id);
+    $finddata = User::findOrFail($id);
     return $finddata;
   }
 
@@ -93,24 +76,25 @@ class User extends Controller
   public function update(Request $request, $id)
   {
     //
+    $finduser = User::findOrFail($id);
     $data = $request->input();
-    $validation = validator::make($data, [
-      'telephone' => 'min:10|max:10',
-    ], [
-      'min' => 'Must be 10 Digits',
-      'max' => 'Must be 10 Digits'
-  ]);
-
+    $validation = validator::make(
+      $data,
+      [
+        'password' => 'required',
+        'newpassword' => 'required'
+      ]
+    );
     if ($validation->fails()) {
       return response()->json($validation->errors(), 202);
+    } elseif (Hash::check($request->password, $finduser->password)) {
+      $finduser->update([
+        'password' => bcrypt($request->newpassword),
+      ]);
+      return response()->json($finduser, 200);
     } else {
-      $finddata = ModelsUser::findOrFail($id);
-      $finddata->name = $request->input('name'); 
-      $finddata->address = $request->input('address'); 
-      $finddata->telephone = $request->input('telephone'); 
-      $finddata->update();
-      return response()->json($finddata);
-    }
+      return response()->json('Incorrect Password',203);
+    };
   }
 
   /**
@@ -122,7 +106,5 @@ class User extends Controller
   public function destroy($id)
   {
     //
-    ModelUser::find($id)->delete();
-    return response()->json('Delete Success',200);
   }
 }

@@ -40,19 +40,22 @@ class Appointment extends Controller
   {
     //
     $data = $request->all();
+    // dd($data);
     $validation = validator::make(
       $data,
       [
         'date' => 'required|after:today|date',
         'time' => 'required',
+        'user_id' => 'required',
+        'service_id' => 'required',
       ]
     );
 
     if ($validation->fails()) {
-      return response()->json([
-        'error' => $validation->errors(),
-        'status' => 202
-      ]);
+      return response()->json(
+        $validation->errors(),
+        202
+      );
     } else {
       Reservation::create($data);
       return response()->json($data, 200);
@@ -67,7 +70,8 @@ class Appointment extends Controller
    */
   public function show($id)
   {
-
+    $findreservation = Reservation::with('user')->findOrFail($id);
+    return response()->json($findreservation, 200);
   }
 
   /**
@@ -91,9 +95,25 @@ class Appointment extends Controller
   public function update(Request $request, $id)
   {
     //
-    $findreservation = Reservation::findOrFail($id);
-    $findreservation->update($request->all());
+    $formdata = $request->input();
+    $validation = validator::make(
+      $formdata,
+      [
+        'date' => 'after:today|date',
+      ]
+    );
+    if ($validation->fails()) {
+      return response()->json($validation->errors(), 202);
+    } else {
+      $finddata = Reservation::findOrFail($id);
+      $finddata->date = $request->input('date');
+      $finddata->time = $request->input('time');
+      $finddata->update();
+      return response()->json(["data" => $finddata, "respstatus" => 200]);
+    }
   }
+
+
 
   /**
    * Remove the specified resource from storage.
@@ -104,5 +124,7 @@ class Appointment extends Controller
   public function destroy($id)
   {
     //
+    Reservation::find($id)->delete();
+    return response()->json('Delete Success', 200);
   }
 }

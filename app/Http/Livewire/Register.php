@@ -15,7 +15,7 @@ class Register extends Component
   'fullname'=> 'required',
   'email'=> 'required|email|unique:users,email',
   'address'=> 'required',
-  'mobile'=> 'required|min:8|max:8',
+  'mobile'=> 'required|min:10|max:10',
   'password'=> 'required',
   'confirmpassword'=> 'required|same:password',
   ];
@@ -26,8 +26,8 @@ class Register extends Component
    'unique'=>'*This email is already taken',
    'numeric'=>'*This is not a phone number',
    'same'=>'Password does not match',
-   'min'=>'Must be 8 digits',
-   'max'=>'Must be 8 digits',
+   'min'=>'Must be 10 digits',
+   'max'=>'Must be 10 digits',
   ];
 
   public function updated($we){

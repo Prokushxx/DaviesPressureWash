@@ -16,7 +16,10 @@ class Services extends Controller
    */
   public function index()
   {
-    return response()->json(Service::all());
+
+    // $data = Service::paginate(3);
+    $data = Service::all();
+    return response()->json($data,200);
   }
 
   /**
@@ -55,7 +58,7 @@ class Services extends Controller
       return response()->json($validation->errors(), 202);
     } else {
       Service::create($data);
-      return $data;
+      return response()->json($data, 200);
     }
   }
 
@@ -69,7 +72,7 @@ class Services extends Controller
   {
     //
     $findService = Service::findOrFail($id);
-    return $findService;
+    return response()->json($findService, 200);
   }
 
   /**
@@ -93,8 +96,25 @@ class Services extends Controller
   {
     //
     $findService = Service::findOrFail($id);
-    $findService->update($request->all());
-    return $findService;
+    $data = $request->input();
+    $validation = validator::make(
+      $data,
+      [
+        'name' => 'required',
+        'cost' => 'required',
+        'desc' => 'required',
+      ],
+      [
+        'required' => '*Please fill out this field'
+      ]
+    );
+
+    if ($validation->fails()) {
+      return response()->json(['error' => $validation->errors(), 'status' => 202]);
+    } else {
+      $findService->update($data);
+      return response()->json($findService, 200);
+    }
   }
 
   /**
@@ -107,6 +127,7 @@ class Services extends Controller
   {
     //
     Service::find($id)->delete();
-    return 'Service Deleted';
+    $service = Service::all();
+    return response()->json($service, 200);
   }
 }

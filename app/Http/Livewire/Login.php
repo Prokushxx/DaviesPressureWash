@@ -26,8 +26,8 @@ class Login extends Component
 
   public function submit()
   {
-
     $this->validate();
+    
     if (Auth::attempt(['email' => $this->email, 'password' => $this->password], filled($this->remember_me))) {
       if (Auth::user()->active_flag == true) {
         if (Auth::user()->user_type == "member") {
