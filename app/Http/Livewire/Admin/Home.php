@@ -66,7 +66,6 @@ class Home extends Component
   }
   /**================================================*/
 
-
   /** Open Edit Mode and Set Data */
   public function editService($id)
   {

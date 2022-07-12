@@ -19,6 +19,7 @@
             <table class="text-left w-full">
                 <thead class="bg-gray-500 flex text-white w-full">
                     <tr class="flex w-full mb-1">
+                        <th class="p-4 w-1/4"></th>
                         <th class="p-4 w-1/4">Name</th>
                         <th class="p-4 w-1/4">Cost</th>
                         <th class="p-4 w-1/4">Description</th>
@@ -30,6 +31,7 @@
                     style="height: 50vh;">
                     @forelse ($data as $datainfo)
                         <tr class="flex w-full mb-">
+                         
                             <td class="p-4 w-1/4">{{ $datainfo->name }}</td>
                             <td class="p-4 w-1/4">{{ $datainfo->cost }}</td>
                             <td class="p-4 w-1/4">{{ $datainfo->desc }}</td>
@@ -40,12 +42,11 @@
                                     wire:click="delete({{ $datainfo->id }})">Delete</button>
                             </td>
                         @empty
-                            
-                                <td class="pt-20 mt-6 text-xl font-bold text-blue-700">
-                                    <h1>THERE IS NOTHNG TO SHOW HERE</h1>
-                                    <p class="flex justify-center text-xl font-bold text-blue-700">ADD SERVICES</p>
-                                </td>
-                            
+
+                            <td class="pt-20 mt-6 text-xl font-bold text-blue-700">
+                                <h1>THERE IS NOTHNG TO SHOW HERE</h1>
+                                <p class="flex justify-center text-xl font-bold text-blue-700">ADD SERVICES</p>
+                            </td>
                     @endforelse
                     </tr>
 
