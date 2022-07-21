@@ -1,10 +1,11 @@
 @component('mail::message')
-# Introduction
+# DAVIES PRESSURE WASHING
 
-This is a Link to Password Reset Form
+Good Day, a password reset was requested from this email
+ {{ $user[0]['email'] }} from your Davie's PowerWash account 
 
-@component('mail::button', ['url' => 'http://127.0.0.1:8003/reset-password'])
-Click here to proceed
+@component('mail::button', ['url' => "http://127.0.0.1:8003/reset-password"])
+Click here to reset password
 @endcomponent
 
 Thanks,<br>

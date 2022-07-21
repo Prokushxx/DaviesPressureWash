@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Mail\PasswordResetMail;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -21,8 +22,9 @@ class ForgotPassword extends Controller
         }
         else{
             $email = $request->input('email');
-            Mail::to($email)->send(new PasswordResetMail());
-            return response()->json("HOLLA",200);
+            $user = User::where('email',$email)->get();
+            Mail::to($email)->send(new PasswordResetMail($user));
+            return response()->json("$email",200);
         }
     }
 }
